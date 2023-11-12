@@ -1,0 +1,9 @@
+[*.lua]
+
+ident_style = tab
+indent_width = 4
+
+quote-style = single
+
+table_separator_style = comma
+trailing_table_separator = always
