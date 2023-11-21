@@ -38,7 +38,7 @@ return {
                     end
                 end,
                 cmd = { "clangd-17",
-                    "--background-index",
+                    --                    "--background-index",
                     "--clang-tidy",
                     "--header-insertion=iwyu",
                     "--completion-style=detailed",
@@ -64,6 +64,8 @@ return {
                     clangdFileStatus = true,
                 },
             }
+
+            lspconfig.gopls.setup {}
 
 
             vim.api.nvim_create_autocmd("BufWritePre", {

@@ -11,3 +11,5 @@ opt.smartindent = true
 opt.autoindent = true
 
 opt.termguicolors = true
+
+opt.splitright = true

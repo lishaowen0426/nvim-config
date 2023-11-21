@@ -81,7 +81,6 @@ return {
                     enable = true,
                     set_jumps = false,
                     goto_next_start = {
-                        ["[["] = "@function.inner",
                         ["]]"] = "@parameter.inner",
                     },
                 },
@@ -108,6 +107,11 @@ return {
         config = function(_, opts)
             vim.keymap.set("n", "[c", function() require("treesitter-context").go_to_context() end,
                 { silent = true, })
+            vim.keymap.set('n', '[[', function()
+                local ts = require("nvim-treesitter.ts_utils")
+                local node = ts.get_node_at_cursor()
+                ts.goto_node(ts.get_next_node(node, false, false), false, true)
+            end, { desc = "go to next parameter", })
         end,
 
     },

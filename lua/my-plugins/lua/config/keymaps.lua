@@ -47,3 +47,9 @@ vim.keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev se
 
 --keywordprg
 vim.keymap.set("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg", })
+
+--vertical help
+vim.keymap.set("n", "<leader>h", ":vert h ", { desc = "vertical help", })
+
+--neotree
+vim.keymap.set("n", "<leader>tt", "<cmd>Neotree toggle reveal_force_cwd<cr>", { desc = "toggle neotree", })
