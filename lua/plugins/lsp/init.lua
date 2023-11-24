@@ -67,6 +67,16 @@ return {
 
             lspconfig.gopls.setup {}
 
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+            require 'lspconfig'.jsonls.setup {
+                capabilities = capabilities,
+                root_dit = function()
+                    return vim.fn.getcwd()
+                end,
+            }
+
 
             vim.api.nvim_create_autocmd("BufWritePre", {
                 group = vim.api.nvim_create_augroup('UserLspConfig', { clear = false, }),
