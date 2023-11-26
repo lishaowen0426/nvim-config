@@ -15,6 +15,7 @@ return {
                 version = "v2.*",
                 build = "make install_jsregexp",
             },
+            { "folke/neodev.nvim", opts = {}, },
         },
 
         config = function(_, opts)
@@ -28,7 +29,16 @@ return {
                 end
             end
 
-            require("plugins.lsp.lua").setup(lspconfig, capabilities, on_attach)
+            lspconfig.lua_ls.setup {
+                settings = {
+                    completion = {
+                        callSnippet = "Replace",
+                    },
+                },
+                capabilities = capabilities,
+                on_attach = on_attach,
+
+            }
 
             lspconfig.clangd.setup {
                 capabilities = capabilities,

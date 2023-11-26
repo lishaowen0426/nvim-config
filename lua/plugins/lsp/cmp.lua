@@ -1,14 +1,14 @@
 local M = {}
 
 function M.setup(_)
-        local cmp = require'cmp'
+    local cmp = require 'cmp'
 
-vim.api.nvim_set_option_value('completeopt', 'menu,menuone,noselect', {})
+    vim.api.nvim_set_option_value('completeopt', 'menu,menuone,noselect', {})
 
     require('luasnip.loaders.from_vscode').lazy_load({
-        path = "~/.local/share/nvim/site/pack/packer/start/friendly-snippets/snippets" })
+        path = "~/.local/share/nvim/site/pack/packer/start/friendly-snippets/snippets", })
 
-    local select_opts = { behavior = cmp.SelectBehavior.Select }
+    local select_opts = { behavior = cmp.SelectBehavior.Select, }
     local luasnip = require('luasnip')
 
     cmp.setup({
@@ -22,7 +22,7 @@ vim.api.nvim_set_option_value('completeopt', 'menu,menuone,noselect', {})
             keyword_length = 2,
         },
         mapping = cmp.mapping.preset.insert({
-            ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+            ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace, }),
             ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
             ['<Down>'] = cmp.mapping.select_next_item(select_opts),
             ['<C-u>'] = cmp.mapping.scroll_docs(-4),
@@ -34,7 +34,7 @@ vim.api.nvim_set_option_value('completeopt', 'menu,menuone,noselect', {})
                 else
                     fallback()
                 end
-            end, { 'i', 's' }),
+            end, { 'i', 's', }),
 
             ['<Tab>'] = cmp.mapping(function(fallback)
                 if cmp.visible() then
@@ -44,32 +44,29 @@ vim.api.nvim_set_option_value('completeopt', 'menu,menuone,noselect', {})
                 else
                     fallback()
                 end
-            end, { 'i', 's' }),
+            end, { 'i', 's', }),
         }),
         sources = {
-            { name = 'nvim_lsp' },
-            { name = 'luasnip' },
-            { name = 'buffer' },
-            { name = 'tags' },
+            { name = 'nvim_lsp', },
+            { name = 'luasnip', },
+            { name = 'buffer', },
+            { name = 'tags', },
         },
     })
-    cmp.setup.cmdline({ '/', '?' }, {
+    cmp.setup.cmdline({ '/', '?', }, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
-            { name = 'buffer' }
-        }
+            { name = 'buffer', },
+        },
     })
 
     cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
-            { name = 'path' },
-            { name = 'cmdline' },
-        })
+            { name = 'path', },
+            { name = 'cmdline', },
+        }),
     })
-
-
-
 end
 
 return M
