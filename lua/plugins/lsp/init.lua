@@ -87,6 +87,8 @@ return {
                 end,
             }
 
+            require 'lspconfig'.rust_analyzer.setup {}
+
 
             vim.api.nvim_create_autocmd("BufWritePre", {
                 group = vim.api.nvim_create_augroup('UserLspConfig', { clear = false, }),

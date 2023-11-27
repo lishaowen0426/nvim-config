@@ -53,3 +53,8 @@ vim.keymap.set("n", "<leader>h", ":vert h ", { desc = "vertical help", })
 
 --neotree
 vim.keymap.set("n", "<leader>tt", "<cmd>Neotree toggle reveal_force_cwd<cr>", { desc = "toggle neotree", })
+
+--float terminal
+vim.keymap.set("n", "<leader>ft", "<cmd>FloatermToggle<cr>", { desc = "toggle float terminal", })
+vim.keymap.set("t", "<leader>ft", "<C-\\><C-n>:FloatermToggle<CR>", { desc = "toggle float terminal", })
+vim.keymap.set("n", "<leader>zz", "<cmd>silent Z<CR>", { desc = "kill floaterm, save all and quit", })
