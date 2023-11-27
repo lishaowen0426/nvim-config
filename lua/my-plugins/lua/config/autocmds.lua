@@ -10,7 +10,7 @@ end, {
 
 
 local ftgroup = vim.api.nvim_create_augroup("floatterminal", { clear = true, })
-vim.api.nvim_create_autocmd({ "VimLeave, VimLeavePre", }, {
+vim.api.nvim_create_autocmd({ "VimLeave", "VimLeavePre", }, {
     pattern = "*",
     group = ftgroup,
     command = "FloatrmKill!",
