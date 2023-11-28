@@ -93,8 +93,10 @@ return {
             vim.api.nvim_create_autocmd("BufWritePre", {
                 group = vim.api.nvim_create_augroup('UserLspConfig', { clear = false, }),
                 buffer = buffer,
-                callback = function()
-                    vim.lsp.buf.format { async = false, }
+                callback = function(ev)
+                    if (ev.file ~= "justfile") then
+                        vim.lsp.buf.format { async = false, }
+                    end
                 end,
 
             })
@@ -102,6 +104,10 @@ return {
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('UserLspConfig', { clear = false, }),
                 callback = function(ev)
+                    if (ev.file == "justfile") then
+                        return
+                    end
+
                     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
                     -- if tagfile exists, use it(instead of the language server)
