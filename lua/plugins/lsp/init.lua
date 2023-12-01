@@ -16,6 +16,7 @@ return {
                 build = "make install_jsregexp",
             },
             { "folke/neodev.nvim", opts = {}, },
+
         },
 
         config = function(_, opts)
@@ -77,7 +78,6 @@ return {
 
             lspconfig.gopls.setup {}
 
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities.textDocument.completion.completionItem.snippetSupport = true
 
             require 'lspconfig'.jsonls.setup {
@@ -87,7 +87,30 @@ return {
                 end,
             }
 
-            require 'lspconfig'.rust_analyzer.setup {}
+            require('lspconfig').rust_analyzer.setup {
+                capabilities = capabilities,
+                ['rust-analyzer'] = {
+                    inlayHints = {
+                        closureCaptureHints = { enable = true, },
+                    },
+
+                },
+
+                on_attach = function(client, bufnr)
+                    local opts = { buffer = bufnr, noremap = true, silent = true, desc = "rust inlayHints", }
+
+                    local toggle_inlay_hints = function()
+                        if vim.lsp.inlay_hint.is_enabled() then
+                            vim.lsp.inlay_hint.enable(0, false)
+                        else
+                            vim.lsp.inlay_hint.enable(0, true)
+                        end
+                    end
+
+                    vim.keymap.set('n', '<leader>ci', toggle_inlay_hints, opts)
+                end,
+
+            }
 
 
             vim.api.nvim_create_autocmd("BufWritePre", {
@@ -122,6 +145,9 @@ return {
                     vim.keymap.set('n', '<leader>cc', vim.lsp.buf.incoming_calls, opts)
                     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
                     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+                    vim.keymap.set('n', '<leader>ca', function()
+                        vim.lsp.buf.code_action({ apply = true, })
+                    end, opts)
                     vim.keymap.set('n', '<leader>cr', '<cmd>ClangdSwitchSourceHeader<cr>',
                         { desc = "Switch source/header", })
                 end,
