@@ -58,3 +58,6 @@ vim.keymap.set("n", "<leader>tt", "<cmd>Neotree toggle reveal_force_cwd<cr>", { 
 vim.keymap.set("n", "<leader>ft", "<cmd>FloatermToggle<cr>", { desc = "toggle float terminal", })
 vim.keymap.set("t", "<leader>ft", "<C-\\><C-n>:FloatermToggle<CR>", { desc = "toggle float terminal", })
 vim.keymap.set("n", "<leader>zz", "<cmd>silent Z<CR>", { desc = "kill floaterm, save all and quit", })
+
+--todo
+vim.keymap.set("n", "<leader>tdo", "<cmd>TodoTelescope<CR>", { desc = "show all todos", })
