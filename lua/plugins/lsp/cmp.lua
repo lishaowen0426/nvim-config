@@ -51,6 +51,7 @@ function M.setup(_)
             { name = 'luasnip', },
             { name = 'buffer', },
             { name = 'tags', },
+            { name = "cmp_yanky", },
         },
     })
     cmp.setup.cmdline({ '/', '?', }, {

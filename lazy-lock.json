@@ -5,6 +5,7 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },
   "cmp-nvim-lua": { "branch": "main", "commit": "f12408bdb54c39c23e67cab726264c10db33ada8" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
+  "cmp_yanky": { "branch": "main", "commit": "c3d089186ccead26eba01023502f3eeadd7a92d2" },
   "go.nvim": { "branch": "master", "commit": "7b7c20029a817ef51f6b498388488e9850fe45ac" },
   "guihua.lua": { "branch": "master", "commit": "cd68996069abedffcd677ca7eee3a660b79e5b32" },
   "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
@@ -28,5 +29,6 @@
   "todo-comments.nvim": { "branch": "main", "commit": "4a6737a8d70fe1ac55c64dfa47fcb189ca431872" },
   "vim-floaterm": { "branch": "master", "commit": "3f01a623376957437f9376327637491b74719e38" },
   "vim-just": { "branch": "main", "commit": "31a72a2a6d55bafb448056e3f876140f9cc53c4f" },
-  "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
+  "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
+  "yanky.nvim": { "branch": "main", "commit": "6bb9ffd3cad4c9876bda54e19d0659de28a4f84f" }
 }

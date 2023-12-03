@@ -15,7 +15,8 @@ return {
                 version = "v2.*",
                 build = "make install_jsregexp",
             },
-            { "folke/neodev.nvim", opts = {}, },
+            { "folke/neodev.nvim",     opts = {}, },
+            { "chrisgrieser/cmp_yanky", },
 
         },
 

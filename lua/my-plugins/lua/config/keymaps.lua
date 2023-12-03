@@ -61,3 +61,12 @@ vim.keymap.set("n", "<leader>zz", "<cmd>silent Z<CR>", { desc = "kill floaterm, 
 
 --todo
 vim.keymap.set("n", "<leader>tdo", "<cmd>TodoTelescope<CR>", { desc = "show all todos", })
+
+--yank
+vim.keymap.set({ "n", "x", }, "p", "<Plug>(YankyPutAfter)")
+vim.keymap.set({ "n", "x", }, "P", "<Plug>(YankyPutBefore)")
+vim.keymap.set({ "n", "x", }, "gp", "<Plug>(YankyGPutAfter)")
+vim.keymap.set({ "n", "x", }, "gP", "<Plug>(YankyGPutBefore)")
+
+vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
+vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")

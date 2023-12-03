@@ -19,13 +19,16 @@ return {
                 },
             }
             telescope.load_extension('fzf')
+            telescope.load_extension("yank_history")
 
             local builtin = require 'telescope.builtin'
+            local yank_history = require("telescope").extensions.yank_history
             vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "find files", })
             vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "live grep", })
             vim.keymap.set('n', '<leader>fc', builtin.grep_string, { desc = "grep string", })
             vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = "list document symbols", })
             vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "list buffers", })
+            vim.keymap.set('n', '<leader>fy', yank_history.yank_history, { desc = "list yanks", })
         end,
 
     },
