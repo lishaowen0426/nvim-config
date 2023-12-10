@@ -15,7 +15,7 @@ return {
                 version = "v2.*",
                 build = "make install_jsregexp",
             },
-            { "folke/neodev.nvim",     opts = {}, },
+            { "folke/neodev.nvim",      opts = {}, },
             { "chrisgrieser/cmp_yanky", },
 
         },
@@ -25,6 +25,7 @@ return {
             require("plugins.lsp.cmp").setup(lspconfig)
 
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
             local on_attach = function(_, bufnr)
                 local function buf_set_option(...)
                     vim.api.nvim_buf_set_option(bufnr, ...)
@@ -198,6 +199,12 @@ return {
         end,
     },
     {
+        "williamboman/mason-lspconfig.nvim",
+        dependencies = {
+            { "williamboman/mason.nvim", },
+        },
+    },
+    {
         "ray-x/go.nvim",
         dependencies = { -- optional packages
             "ray-x/guihua.lua",
@@ -206,6 +213,7 @@ return {
         },
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
             require('go').setup {
                 lsp_cfg = {
                     capabilities = capabilities,
@@ -216,9 +224,11 @@ return {
                 lsp_inlay_hints = {
                     enable = false,
                 },
+                lsp_codelens = false,
             }
         end,
         ft = { "go", 'gomod', },
 
     },
+
 }

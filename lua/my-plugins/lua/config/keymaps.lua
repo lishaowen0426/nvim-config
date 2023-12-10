@@ -9,6 +9,7 @@ local function toggle_diagnostic()
     end
 end
 
+
 vim.keymap.set('n', '<leader>dd', toggle_diagnostic, { desc = "toggle diagnostic", })
 vim.keymap.set('n', '<leader>nn', '<cmd>noh<cr>', { desc = "close highlight", })
 
@@ -69,4 +70,3 @@ vim.keymap.set({ "n", "x", }, "gp", "<Plug>(YankyGPutAfter)")
 vim.keymap.set({ "n", "x", }, "gP", "<Plug>(YankyGPutBefore)")
 
 vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
-vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
