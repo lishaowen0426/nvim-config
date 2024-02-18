@@ -88,6 +88,10 @@ return {
                     return vim.fn.getcwd()
                 end,
             }
+            require 'lspconfig'.pyright.setup {
+                single_file_support = true,
+
+            }
 
             require('lspconfig').rust_analyzer.setup {
                 capabilities = capabilities,
